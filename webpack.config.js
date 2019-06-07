@@ -4,16 +4,22 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/app.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist/',
         filename: 'js/app.js'
     },
+    resolve: {
+        alias: {
+            pages: path.resolve(__dirname, './src/pages'),
+            components: path.resolve(__dirname, './src/components')
+        }
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -67,7 +73,8 @@ module.exports = {
     plugins: [
         //生成html文件
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, './src/index.html')
+            template: path.join(__dirname, './src/index.html'),
+            favicon: './favicon.ico'
         }),
         //独立出css文件，不在bundle.js中
         new ExtractTextPlugin("css/[name].css"),
@@ -79,6 +86,9 @@ module.exports = {
     ],
     devServer: {
         //contentBase: './dist',
-        port: 8086
+        port: 8086,
+        historyApiFallback: {
+            index: '/dist/index.html'
+        }
     }
 };
