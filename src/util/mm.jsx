@@ -41,6 +41,10 @@ class MUtil{
     errorTips(errMsg){
         alert(errMsg)
     }
+    //成功提示
+    successTips(successMsg){
+        alert(errMsg)
+    }
     //保存key value到localstorage
     setStorage(name, data){
         if(typeof data === 'object'){
