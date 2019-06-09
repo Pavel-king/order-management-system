@@ -1,7 +1,9 @@
 import React from 'react'
-import './theme.css'
 import NavTop from 'components/nav-top/index.jsx'
 import NavSide from 'components/nav-side/index.jsx'
+
+import './theme.css'
+import './index.scss'
 
 class Layout extends React.Component {
     constructor(props){

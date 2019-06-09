@@ -43,7 +43,7 @@ class MUtil{
     }
     //成功提示
     successTips(successMsg){
-        alert(errMsg)
+        alert(successMsg)
     }
     //保存key value到localstorage
     setStorage(name, data){
