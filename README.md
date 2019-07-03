@@ -1,2 +1,3 @@
 # order-management-system
-test  
+用户名：admin  
+密码：admin  
